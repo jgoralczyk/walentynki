@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffcccb;
     margin-top: 50px;
-    background-image: url('backg.webp'); /* Tło */
+    background-image: url('backg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,4 +36,30 @@ button {
     background-color: #f44336;
     color: white;
     position: absolute;
+}
+
+/* Style dla ekranów o szerokości do 600px (smartfony) */
+@media (max-width: 600px) {
+    body {
+        margin-top: 20px; /* Mniejsze marginesy na urządzeniach mobilnych */
+    }
+
+    h1 {
+        font-size: 20px; /* Mniejsza czcionka nagłówka */
+    }
+
+    button {
+        font-size: 18px; /* Mniejszy rozmiar czcionki przycisków */
+        padding: 8px 16px; /* Mniejsze przyciski */
+    }
+
+    .buttons {
+        margin-top: 15px; /* Mniejszy odstęp między przyciskami */
+    }
+
+    .yes, .no {
+        position: static; /* Usuwanie pozycji absolutnej na małych ekranach */
+        width: 100%; /* Przyciski zajmują pełną szerokość ekranu */
+        margin-top: 10px; /* Przerwa między przyciskami */
+    }
 }

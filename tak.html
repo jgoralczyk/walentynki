@@ -20,56 +20,77 @@
             overflow: hidden;
         }
         h1 {
-            font-size: 28px;
+            font-size: 4vw; /* Procentowa szerokość, dostosuje się do ekranu */
             color: #d63384;
             margin-bottom: 20px;
         }
-.envelope {
-    position: relative;
-    width: 500px; /* Zwiększono szerokość koperty */
-    height: 350px; /* Zwiększono wysokość koperty */
-    background: #ff6666;
-    border-radius: 20px 20px 10px 10px; /* Zwiększone zaokrąglenia */
-    cursor: pointer;
-    transition: transform 0.5s;
-}
 
-.flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: #ff4d4d;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transition: transform 0.5s ease-in-out;
-    transform-origin: top;
-}
+        .envelope {
+            position: relative;
+            width: 80vw; /* Użycie szerokości procentowej */
+            max-width: 500px; /* Maksymalna szerokość */
+            height: 50vw; /* Użycie wysokości procentowej */
+            max-height: 350px; /* Maksymalna wysokość */
+            background: #ff6666;
+            border-radius: 20px 20px 10px 10px;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
 
-.letter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px; /* Dopasowana szerokość listu */
-    height: 450px; /* Dopasowana wysokość listu */
-    background: white;
-    padding: 30px; /* Zwiększony padding */
-    border-radius: 12px; /* Zwiększone zaokrąglenie */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-    font-size: 20px; /* Zwiększona czcionka */
-    text-align: left;
-    line-height: 1.6;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.5s ease-in-out 0.3s;
-}
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #ff4d4d;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transition: transform 0.5s ease-in-out;
+            transform-origin: top;
+        }
 
+        .letter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 95%; /* Użycie procentowej szerokości */
+            height: auto; /* Automatyczne dopasowanie wysokości */
+            max-width: 90%; /* Maksymalna szerokość */
+            background: white;
+            padding: 5vw; /* Procentowy padding, dostosowuje się do rozmiaru ekranu */
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            font-size: 4vw; /* Procentowa czcionka */
+            text-align: left;
+            line-height: 1.6;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease-in-out 0.3s;
+            overflow: hidden; /* Zapobiega wystawaniu treści poza obszar */
+        }
 
         .open .flap {
             transform: rotateX(180deg);
         }
+
         .open .letter {
             transform: translate(-50%, -50%) scale(1);
         }
+
+        /* Media Query dla mniejszych ekranów */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 6vw;
+            }
+            .envelope {
+                width: 90vw;
+                height: 60vw;
+            }
+            .letter {
+                font-size: 5vw;
+                padding: 8vw;
+            }
+        }
+
     </style>
 </head>
 <body>

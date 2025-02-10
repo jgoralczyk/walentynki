@@ -20,7 +20,7 @@
             overflow: hidden;
         }
         h1 {
-            font-size: 4vw; /* Procentowa szerokość, dostosuje się do ekranu */
+            font-size: 5vw; /* Procentowa szerokość, dostosuje się do ekranu */
             color: #d63384;
             margin-bottom: 20px;
         }
@@ -28,9 +28,9 @@
         .envelope {
             position: relative;
             width: 80vw; /* Użycie szerokości procentowej */
-            max-width: 500px; /* Maksymalna szerokość */
+            max-width: 600px; /* Maksymalna szerokość */
             height: 50vw; /* Użycie wysokości procentowej */
-            max-height: 350px; /* Maksymalna wysokość */
+            max-height: 400px; /* Maksymalna wysokość */
             background: #ff6666;
             border-radius: 20px 20px 10px 10px;
             cursor: pointer;
@@ -54,18 +54,20 @@
             top: 50%;
             left: 50%;
             width: 95%; /* Użycie procentowej szerokości */
-            height: auto; /* Automatyczne dopasowanie wysokości */
             max-width: 90%; /* Maksymalna szerokość */
+            height: auto; /* Automatyczne dopasowanie wysokości */
+            max-height: 85%; /* Maksymalna wysokość */
             background: white;
-            padding: 5vw; /* Procentowy padding, dostosowuje się do rozmiaru ekranu */
+            padding: 3vw; /* Procentowy padding, dostosowuje się do rozmiaru ekranu */
             border-radius: 12px;
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-            font-size: 4vw; /* Procentowa czcionka */
+            font-size: 1.6em; /* Użycie em, żeby czcionka rosła wolniej */
             text-align: left;
             line-height: 1.6;
             transform: translate(-50%, -50%) scale(0);
             transition: transform 0.5s ease-in-out 0.3s;
-            overflow: hidden; /* Zapobiega wystawaniu treści poza obszar */
+            overflow-y: auto; /* Dodanie przewijania w pionie */
+            padding-right: 15px; /* Przestrzeń na pasek przewijania */
         }
 
         .open .flap {
@@ -88,6 +90,7 @@
             .letter {
                 font-size: 5vw;
                 padding: 8vw;
+                max-height: 70%; /* W mniejszych ekranach zmniejsz wysokość */
             }
         }
 

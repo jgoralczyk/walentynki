@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratulacje!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #ffcccb;
+            padding: 20px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 28px;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+.envelope {
+    position: relative;
+    width: 500px; /* Zwiększono szerokość koperty */
+    height: 350px; /* Zwiększono wysokość koperty */
+    background: #ff6666;
+    border-radius: 20px 20px 10px 10px; /* Zwiększone zaokrąglenia */
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff4d4d;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: top;
+}
+
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px; /* Dopasowana szerokość listu */
+    height: 450px; /* Dopasowana wysokość listu */
+    background: white;
+    padding: 30px; /* Zwiększony padding */
+    border-radius: 12px; /* Zwiększone zaokrąglenie */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    font-size: 20px; /* Zwiększona czcionka */
+    text-align: left;
+    line-height: 1.6;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-in-out 0.3s;
+}
+
+
+        .open .flap {
+            transform: rotateX(180deg);
+        }
+        .open .letter {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+</head>
+<body>
+    <h1>❤️ Zostałaś moją Walentynką! (otwórz koperte) ❤️</h1>
+
+    <div class="envelope" onclick="openLetter()">
+        <div class="flap"></div>
+        <div class="letter">
+        <p>Droga Karolinko,</p>
+        <p>Chciałem Ci powiedzieć, że jesteś dla mnie wyjątkowa. Twoja obecność sprawia, że każdy dzień staje się lepszy i piękniejszy, jesteś dla mnie oazą komfortu, moim mostem, który łączy mnie ze sztuką. Dziękuje Ci za to, że mnie motywujesz, w szczególności swoją osobą. </p>
+        <p>Dziękuję, że chciałaś zostać moją gwiazdką z nieba. 💖</p>
+        <p>Z całego serca kocham cię,<br>Twój Kuba</p>
+    </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            let envelope = document.querySelector('.envelope');
+            envelope.classList.add('open');
+
+            // Uruchomienie konfetti po otwarciu
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 500);
+        }
+    </script>
+</body>
+</html>

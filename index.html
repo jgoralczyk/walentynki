@@ -9,18 +9,38 @@
 <body>
     <h1>Czy zostaniesz moją walentynką? 💖</h1>
     <div class="buttons">
-        <button class="yes" onclick="alert('Wiedziałem! ❤️')">Tak</button>
-        <button class="no" onmouseover="moveButton()">Nie</button>
+        <button class="yes" onclick="window.location.href='tak.html'">Tak</button>
+        <button class="no" onclick="alert('Ten przycisk nie działa 😜')">Nie</button>
     </div>
-
-    <script>
-        function moveButton() {
-            let button = document.querySelector('.no');
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            for (let i = 0; i < 14; i++) {
+                createFallingStar();
+            }
+        });
+        
+        function createFallingStar() {
+            let star = document.createElement("div");
+            star.innerHTML = "⭐";
+            star.classList.add("falling-star");
+            document.body.appendChild(star);
+            
+            resetStar(star);
         }
-    </script>
+        
+        function resetStar(star) {
+            let x = Math.random() * window.innerWidth;  // Losowa pozycja pozioma
+            let duration = 3 + Math.random() * 2; // Czas spadania 3-5 sekund
+        
+            star.style.left = `${x}px`;
+            star.style.animationDuration = `${duration}s`;
+        
+            // Po zakończeniu animacji gwiazdka wraca na górę
+            star.addEventListener("animationiteration", () => {
+                resetStar(star);
+            });
+        }
+</script>
+        
 </body>
 </html>
